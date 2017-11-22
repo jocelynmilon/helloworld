@@ -5,3 +5,14 @@
 <button class="btn btn-default"(click)="changerImage()">Cliquer pour changer image</button>
 <button class="btn btn-default"(click)="changerTaille()">Cliquer pour changer la taille</button>
 <button class="btn btn-default"(click)="onClickDate()">Afficher la date</button>
+
+<p>{{texte}}</p>
+<button class="btn btn-default"(click)="changerTexte()">cliquer sur le bouton</button>
+
+<p>{{nombre}}</p>
+<button class="btn btn-default"(click)="incrementerNombre()">+</button>
+<button class="btn btn-default"(click)="deincrementerNombre()">-</button>
+<br>
+
+<img [src] ="picture" [width] ="width" [height] ="height">
+<button class="btn btn-default"(click)="defilerImage()">Cliquer pour changer image</button>

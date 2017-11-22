@@ -13,6 +13,11 @@ export class AppComponent {
   image: string = "app/image.jpeg";
   width: string = "800";
   height: string = "400";
+  texte: string = "rêvons plus grand";
+  nombre: number = 1
+  images: string[] = ['app/images/image10.jpeg','app/images/image11.jpg','app/images/image12.jpg','app/images/image13.jpg','app/images/image14.jpg','app/images/image15.jpg'];
+  picture: string = this.images[0];
+  index: number = 0;
 
   onClick(){
     alert("vous avez cliquez sur le bouton");
@@ -36,5 +41,27 @@ export class AppComponent {
    }
    onClickDate(){
      alert(this.date)
+   };
+   changerTexte(){
+     this.texte ="Paris est magique"
+   };
+   incrementerNombre(){
+     this.nombre ++
+   };
+   deincrementerNombre(){
+     this.nombre --
+   }
+   defilerImage(){
+    
+    if(this.index == this.images.length -1){
+      this.index = 0;
+      this.picture = this.images[this.index]
+   
+    }else{
+      this.index ++;
+      this.picture = this.images[this.index]
+    } 
+
+
    };
 }
