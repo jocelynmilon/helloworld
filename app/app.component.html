@@ -1,5 +1,5 @@
 <h1>{{titre}}</h1>
-<h2>{{date}} </h2>  
+<h2>{{date}} </h2>
 <img src="{{image}}" width="{{width}}" height="{{height}}">
 <a href="#" (click)="onClick()">cliquez sur le bouton</a>
 <button class="btn btn-default"(click)="changerImage()">Cliquer pour changer image</button>
@@ -16,3 +16,30 @@
 
 <img [src] ="picture" [width] ="width" [height] ="height">
 <button class="btn btn-default"(click)="defilerImage()">Cliquer pour changer image</button>
+<br>
+<h1>Liste de tache </h1>
+<div>
+<!-- formulaire -->
+    <form>
+        <input type="text" placeholder="ajouter à la liste" name="texte" [(ngModel)]="texte">
+         <input type="submit" value="ajouter" (click)="ajouterAListe(texte)" >
+
+
+    </form>
+
+<!-- fin de formulaire -->
+
+</div>
+<div>
+<!-- 2 way binding -->
+{{texte}}
+</div><br>
+
+<!-- liste tache -->
+<div>
+
+  <ul *ngFor="let tache of taches">
+    <li>{{tache}} </li>
+  </ul>
+</div>
+
