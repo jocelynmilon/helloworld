@@ -14,19 +14,22 @@ export class AppComponent {
   image: string = "app/image.jpeg";
   width: string = "800";
   height: string = "400";
-  texte: string = "rêvons plus grand";
+  texte: string ;
   nombre: number = 1
   images: string[] = ['app/images/image10.jpeg','app/images/image11.jpg','app/images/image12.jpg','app/images/image13.jpg','app/images/image14.jpg','app/images/image15.jpg'];
   picture: string = this.images[0];
   index: number = 0;
-  taches : string[] = ['Maj des infrastructures','Attirer les meilleurs jeune de la région', 'Construir une équipe compétitif'];
-
+  taches : any[] = [
+    {texte:'Maj des infrastructures', realise: false},
+    {texte:'Attirer les meilleurs jeune de la région', realise: false},
+    {texte:'Construir une équipe compétitif', realise: false},
+      ];
   onClick(){
     alert("vous avez cliquez sur le bouton");
   };
   changerImage(){
 
-   if (this.image == "app/image.jpeg"){                     // pour simplifier on peu ecrire  this.image =(this.image == "app/image.jpeg" ? "app/image2.jpg" : "app/image.jpeg")
+   if (this.image == "app/image.jpeg"){
      this.image = "app/image2.jpg"
    } else {
      this.image = "app/image.jpeg"
@@ -67,7 +70,11 @@ export class AppComponent {
 
    };
    ajouterAListe(nouvelleTache:string) {
-     this.taches.push(nouvelleTache)
+     this.taches.push(nouvelleTache);
      this.texte = '';
+   };
+   tacheRealise(index:number) {
+    // console.log(this.taches[index] + " réalisé")
+     this.taches[index].realise = true
    }
 }
