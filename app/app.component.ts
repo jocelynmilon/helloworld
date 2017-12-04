@@ -19,11 +19,9 @@ export class AppComponent {
   images: string[] = ['app/images/image10.jpeg','app/images/image11.jpg','app/images/image12.jpg','app/images/image13.jpg','app/images/image14.jpg','app/images/image15.jpg'];
   picture: string = this.images[0];
   index: number = 0;
-  taches : any[] = [
-    {texte:'Maj des infrastructures', realise: false},
-    {texte:'Attirer les meilleurs jeune de la région', realise: false},
-    {texte:'Construir une équipe compétitif', realise: false},
-      ];
+  taches : string[] = [ 'Maj des infrastructures', 'Attirer les meilleurs jeune de la région','Construir une équipe compétitif' ]
+
+
   onClick(){
     alert("vous avez cliquez sur le bouton");
   };
@@ -73,8 +71,11 @@ export class AppComponent {
      this.taches.push(nouvelleTache);
      this.texte = '';
    };
+
    tacheRealise(index:number) {
-    // console.log(this.taches[index] + " réalisé")
-     this.taches[index].realise = true
+
+    console.log(this.taches[index] + "fait")
+
    }
+  
 }
