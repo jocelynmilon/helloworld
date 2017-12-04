@@ -39,7 +39,7 @@
 <div>
 
   <ul *ngFor="let tache of taches let i=index">
-<li (click)="tacheRealise(i)"> {{tache}} </li>
+<li (click)="tacheRealise(i)" [class.realise]="tache.realise == true" > {{tache.texte}} </li>
 
   </ul>
 </div>
