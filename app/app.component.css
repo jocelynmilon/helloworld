@@ -1,7 +1,10 @@
 h1 {color:red};
-ul li {
+ul  {
   cursor: pointer;
     
+}
+li{
+  cursor: pointer;
 }
 .realise {
     text-decoration: line-through;

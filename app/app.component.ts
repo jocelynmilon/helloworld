@@ -14,16 +14,18 @@ export class AppComponent {
   image: string = "app/image.jpeg";
   width: string = "800";
   height: string = "400";
+  texte2: string ;
   texte: string ;
   nombre: number = 1
   images: string[] = ['app/images/image10.jpeg','app/images/image11.jpg','app/images/image12.jpg','app/images/image13.jpg','app/images/image14.jpg','app/images/image15.jpg'];
   picture: string = this.images[0];
   index: number = 0;
-  taches : any[] = [
-   {texte: 'Maj des infrastructures', realise: false},
-   {texte: 'Attirer les meilleurs jeune de la région', realise: false},
-   {texte: 'Construir une équipe compétitif', realise: false}
-     ]
+  taches : string[] = ['Maj des infrastructures', 'Attirer les meilleurs jeune de la région', 'Construir une équipe compétitif'];
+  actions: any[] = [
+    {texte:'Acheter Neymar', realise: false},
+    {texte:'Acheter Nbappé', realise: false},
+    {texte:'Acheter Messi', realise: false},
+  ];
 
 
   onClick(){
@@ -73,18 +75,23 @@ export class AppComponent {
    };
    ajouterAListe(nouvelleTache:string) {
      this.taches.push(nouvelleTache);
-     this.texte = '';
+     this.texte2 = '';
    };
 
-   tacheRealise(index:number) {
+   ajouterAction(nouvelleAction:string) {
+      this.actions.push(nouvelleAction);
+      this.texte ="";
+   };
 
-   // console.log(this.taches[index] + " fait")
-    
-    if (this.taches[index].realise == false ) {
-        this.taches[index].realise = true
-    } else {
-      this.taches[index].realise = false
-    }
+   actionRealise(index:number){
+    // console.log(this.actions[index] + " fait")
+     
+
+     if(this.actions[index].realise == false) {
+       this.actions[index].realise = true
+     }else {
+       this.actions[index].realise = false
+     }
    }
-  
+
 }

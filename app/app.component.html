@@ -21,8 +21,8 @@
 <div>
 <!-- formulaire -->
     <form>
-        <input type="text" placeholder="ajouter à la liste" name="texte" [(ngModel)]="texte">
-         <input type="submit" value="ajouter" (click)="ajouterAListe(texte)" >
+        <input type="text" placeholder="ajouter à la liste" name="texte2" [(ngModel)]="texte2">
+         <input type="submit" value="ajouter" (click)="ajouterAListe(texte2)" >
 
 
     </form>
@@ -32,17 +32,36 @@
 </div>
 <div>
 <!-- 2 way binding -->
-<p>{{texte}}</p>
-</div><br>
+<p>{{texte2}}</p>
+</div><br>    
 
 <!-- liste tache -->    
 <div>
 
-  <ul *ngFor="let tache of taches let i=index">
-<li (click)="tacheRealise(i)" [class.realise]="tache.realise == true" > {{tache.texte}} </li>
+  <ul *ngFor="let tache of taches ">
+<li>{{tache}} </li>
 
   </ul>
 </div>
 
-<h1></h1>
+<h1>Liste des actions à réaliser</h1>
+<div>
+<form>
+ <input type="text" placeholder="ajouter à la liste" name="texte"[(ngModel)]="texte">
+ <input type="submit" value="ajouter" class="btn" (click)="ajouterAction(texte)">
+
+</form>
+   
+</div>
+<div>
+  <p>{{texte}} </p>
+</div>
+<br>
+<div>
+  <ul *ngFor="let action of actions let i=index">
+  <li (click)="actionRealise(i)" [class.realise]="action.realise == true">{{action.texte}}</li>
+  </ul> 
+  <p>Cliquer sur l'action réalisée</p> 
+</div>
+
 
