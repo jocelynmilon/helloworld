@@ -20,8 +20,8 @@ export class AppComponent {
   picture: string = this.images[0];
   index: number = 0;
   taches : any[] = [
-   {texte: 'Maj des infrastructures', realise: false}
-   {texte: 'Attirer les meilleurs jeune de la région', realise: false}
+   {texte: 'Maj des infrastructures', realise: false},
+   {texte: 'Attirer les meilleurs jeune de la région', realise: false},
    {texte: 'Construir une équipe compétitif', realise: false}
      ]
 
