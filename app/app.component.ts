@@ -1,6 +1,22 @@
 import { Component } from '@angular/core';
 
 
+class Langage {
+  id: number;
+  nom: string;
+  parleAnglais: boolean;
+}
+
+const LANGAGES : Langage[] = [
+
+ {id: 1, nom: 'Francais', parleAnglais: false},
+ {id: 2, nom: 'Portugais' parleAnglais: false},
+ {id: 3, nom: 'Argentin' parleAnglais: false},
+ {id: 4, nom: 'Espagnole' parleAnglais: false},
+ {id: 5, nom: 'Italien' parleAnglais: false},
+ {id: 6, nom: 'Belge' parleAnglais: false}
+
+]
 @Component({
     selector: 'hello-world-app',
     templateUrl: 'app/app.component.html',
@@ -26,6 +42,9 @@ export class AppComponent {
     {texte:'Acheter Nbappé', realise: false},
     {texte:'Acheter Messi', realise: false},
   ];
+  langages = LANGAGES
+   
+ 
 
 
   onClick(){
@@ -93,5 +112,8 @@ export class AppComponent {
        this.actions[index].realise = false
      }
    }
-
+    surligner(index:number){
+   
+      this.langages[index].parleAnglais = (this.langages[index].parleAnglais == false? this.langages[index].parleAnglais =true : this.langages[index].parleAnglais = false)
+    }
 }

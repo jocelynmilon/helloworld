@@ -63,5 +63,15 @@
   </ul> 
   <p>Cliquer sur l'action réalisée</p> 
 </div>
+<br>
+<div>
+<h1>ngFor</h1>
+<p>Les langues du vestiaire du PSG</p>
+<ul *ngFor="let langage of langages let i=index">
+  
+<li (click)="surligner(i)" [class.surligner]="langage.parleAnglais == true">{{langage.nom}}</li>
 
 
+</ul> 
+<p>Cliquez sur les langues que vous parlez</p>
+</div>

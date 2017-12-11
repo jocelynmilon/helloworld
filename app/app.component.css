@@ -10,3 +10,7 @@ li{
     text-decoration: line-through;
     color:blue;
 }
+.surligner{
+  background: blue;
+  width:20%;
+}
