@@ -10,11 +10,11 @@ class Langage {
 const LANGAGES : Langage[] = [
 
  {id: 1, nom: 'Francais', parleAnglais: false},
- {id: 2, nom: 'Portugais' parleAnglais: false},
- {id: 3, nom: 'Argentin' parleAnglais: false},
- {id: 4, nom: 'Espagnole' parleAnglais: false},
- {id: 5, nom: 'Italien' parleAnglais: false},
- {id: 6, nom: 'Belge' parleAnglais: false}
+ {id: 2, nom: 'Portugais', parleAnglais: false},
+ {id: 3, nom: 'Argentin', parleAnglais: false},
+ {id: 4, nom: 'Espagnole', parleAnglais: false},
+ {id: 5, nom: 'Italien', parleAnglais: false},
+ {id: 6, nom: 'Belge', parleAnglais: false}
 
 ]
 @Component({
