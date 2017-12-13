@@ -2,76 +2,152 @@
 <h2>{{date}} </h2>
 <img src="{{image}}" width="{{width}}" height="{{height}}">
 <a href="#" (click)="onClick()">cliquez sur le bouton</a>
-<button class="btn btn-default"(click)="changerImage()">Cliquer pour changer image</button>
-<button class="btn btn-default"(click)="changerTaille()">Cliquer pour changer la taille</button>
-<button class="btn btn-default"(click)="onClickDate()">Afficher la date</button>
+<button class="btn btn-default" (click)="changerImage()">Cliquer pour changer image</button>
+<button class="btn btn-default" (click)="changerTaille()">Cliquer pour changer la taille</button>
+<button class="btn btn-default" (click)="onClickDate()">Afficher la date</button>
 
 <p>{{texte}}</p>
-<button class="btn btn-default"(click)="changerTexte()">cliquer sur le bouton</button>
+<button class="btn btn-default" (click)="changerTexte()">cliquer sur le bouton</button>
 
 <p>{{nombre}}</p>
-<button class="btn btn-default"(click)="incrementerNombre()">+</button>
-<button class="btn btn-default"(click)="deincrementerNombre()">-</button>
+<button class="btn btn-default" (click)="incrementerNombre()">+</button>
+<button class="btn btn-default" (click)="deincrementerNombre()">-</button>
 <br>
 
-<img [src] ="picture" [width] ="width" [height] ="height">
-<button class="btn btn-default"(click)="defilerImage()">Cliquer pour changer image</button>
+<img [src]="picture" [width]="width" [height]="height">
+<button class="btn btn-default" (click)="defilerImage()">Cliquer pour changer image</button>
 <br>
 <h1>Liste de tache </h1>
 <div>
-<!-- formulaire -->
+    <!-- formulaire -->
     <form>
         <input type="text" placeholder="ajouter à la liste" name="texte2" [(ngModel)]="texte2">
-         <input type="submit" value="ajouter" (click)="ajouterAListe(texte2)" >
+        <input type="submit" value="ajouter" (click)="ajouterAListe(texte2)">
 
 
     </form>
 
-<!-- fin de formulaire -->
+    <!-- fin de formulaire -->
 
 </div>
 <div>
-<!-- 2 way binding -->
-<p>{{texte2}}</p>
-</div><br>    
+    <!-- 2 way binding -->
+    <p>{{texte2}}</p>
+</div><br>
 
-<!-- liste tache -->    
+<!-- liste tache -->
 <div>
 
-  <ul *ngFor="let tache of taches ">
-<li>{{tache}} </li>
+    <ul *ngFor="let tache of taches ">
+        <li>{{tache}} </li>
 
-  </ul>
+    </ul>
 </div>
 
 <h1>Liste des actions à réaliser</h1>
 <div>
-<form>
- <input type="text" placeholder="ajouter à la liste" name="texte"[(ngModel)]="texte">
- <input type="submit" value="ajouter" class="btn" (click)="ajouterAction(texte)">
+    <form>
+        <input type="text" placeholder="ajouter à la liste" name="texte" [(ngModel)]="texte">
+        <input type="submit" value="ajouter" class="btn" (click)="ajouterAction(texte)">
 
-</form>
-   
+    </form>
+
 </div>
 <div>
-  <p>{{texte}} </p>
-</div>
-<br>
-<div>
-  <ul *ngFor="let action of actions let i=index">
-  <li (click)="actionRealise(i)" [class.realise]="action.realise == true">{{action.texte}}</li>
-  </ul> 
-  <p>Cliquer sur l'action réalisée</p> 
+    <p>{{texte}} </p>
 </div>
 <br>
 <div>
-<h1>ngFor</h1>
-<p>Les langues du vestiaire du PSG</p>
-<ul *ngFor="let langage of langages let i=index">
-  
-<li (click)="surligner(i)" [class.surligner]="langage.parleAnglais == true">{{langage.nom}}</li>
+    <ul *ngFor="let action of actions let i=index">
+        <li (click)="actionRealise(i)" [class.realise]="action.realise == true">{{action.texte}}</li>
+    </ul>
+    <p>Cliquer sur l'action réalisée</p>
+</div>
+<br>
+<div>
+    <h1>ngFor - class binding</h1>
+    <p>Les langues du vestiaire du PSG</p>
+
+    <ul *ngFor="let langage of langages let i=index">
+
+        <li (click)="surligner(i)" [class.surligner]="langage.parleAnglais == true">{{langage.nom}}</li>
 
 
-</ul> 
-<p>Cliquez sur les langues que vous parlez</p>
+    </ul>
+    <p>Cliquez sur les langues que vous parlez</p>
+</div>
+
+<div>
+    <h1>ngFor - style binding</h1>
+    <p>Les langues du vestiaire du PSG</p>
+
+    <ul *ngFor="let langage of langages let i=index">
+
+        <li (click)="surligner(i)" [style.background-color]="langage.parleAnglais? 'red': 'transparent'">{{langage.nom}}</li>
+
+
+    </ul>
+    <p>Cliquez sur les langues que vous parlez</p>
+</div>
+
+<div>
+    <h1>style binding -ngStyle</h1>
+    <p>Je veux apprendre</p>
+    <br>
+    <table class="table table-bordered" style="width:20%" border=1>
+        <tr *ngFor="let langage of langages let i=index">
+            <td>{{i + 1}}</td>
+            <td [ngStyle]="setStyles(langage)">{{langage.nom}}</td>
+            <td><span (click)="marquerImportant(i)" style="text-align:center">✅</span></td>
+            <td><span (click)="marquerPasImportant(i)" style="text-align:center">❌</span></td>
+    </table>
+</div>
+<h1>NgIf</h1>
+<div>
+    <p *ngIf="visible">cliquer sur le bouton pour afficher ou cacher le texte</p>
+    <p *ngIf="!visible">&nbsp;</p>
+
+</div>
+<button (click)="cacherTexte()">{{texteBouton}}</button>
+
+<div class="container">
+
+    <p>cliquer sur le langage pour ajouter à la liste de 'je veux apprendre'</p>
+    <br>
+    <div class="row">
+
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>Langue etrangères</h4>
+                </div>
+                <div class="panel-body">
+                    <ul *ngFor="let langage of langages let i = index">
+                        <li (click)="selectionnerListe(i)">{{langage.nom}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>je veux apprendre</h4>
+                </div>
+                <div class="panel-body">
+                    <ul>
+                        <li>
+
+                        </li>
+                    </ul>
+                    <!-- si liste vide -->
+                    <ul>
+                        <li> <strong>La liste est vide</strong> </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
 </div>

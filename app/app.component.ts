@@ -42,9 +42,18 @@ export class AppComponent {
     {texte:'Acheter Nbappé', realise: false},
     {texte:'Acheter Messi', realise: false},
   ];
+  texteBouton: string = "cacher";
+  visible: Boolean = true;
   langages = LANGAGES
+  langagesSelectionnes: string [] = [];
    
- 
+ setStyles(langage:Langage) {
+   let styles = {
+     'color': langage.parleAnglais ? '#000' : '#ccc',
+     'background-color': langage.parleAnglais ? 'yellow' : 'transparent'
+   };
+   return styles
+ }
 
 
   onClick(){
@@ -116,4 +125,27 @@ export class AppComponent {
    
       this.langages[index].parleAnglais = (this.langages[index].parleAnglais == false? this.langages[index].parleAnglais =true : this.langages[index].parleAnglais = false)
     }
+    marquerImportant(index:number) {
+      let langage = this.langages[index];
+      langage.parleAnglais = true;
+    };
+    marquerPasImportant(index:number) {
+      let langage = this.langages[index];
+      langage.parleAnglais = false;
+    }
+    cacherTexte() {
+        if(this.visible == true) {
+          this.visible =false
+          this.texteBouton = "afficher"
+        }else {
+          this.visible = true
+          this.texteBouton = "cacher"
+        }
+    }
+    selectionnerListe(index:number) {
+      let langage : string = this.langages[index];
+      this.langagesSelectionnes.push(langage)
+      console.log(langage)
+    }
 }
+   
